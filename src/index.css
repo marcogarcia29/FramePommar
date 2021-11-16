@@ -1,4 +1,8 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 body {
   margin: 0;
@@ -24,12 +28,6 @@ code {
   font-size: 20px;
   font-family: Helvetica;
   margin-bottom: 10px;
-}
-
-.navbar h1 {
-  color: #ddd;
-  font-weight: normal;
-  font-size: 1.4em;
 }
 
 .home {
@@ -89,15 +87,8 @@ img {
   color: #ddd;
 }
 
-form {
-  display: flex;
-  float: left;
-  margin-right: 20px;
-}
-
 button {
   background-color: rgba(200,200,200,0.0);
-
   border: none;
   color: white;
   border-radius: 5px;
@@ -142,10 +133,6 @@ button {
 
 .loginForm > input::placeholder{
   color: #8467b6;
-}
-
-.loginForm > h1{
-  color: white;
 }
 
 .loginForm > button {

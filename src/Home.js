@@ -1,4 +1,4 @@
-import { fruitMenu } from "./data/fruit_menu";
+import  fruitMenu  from "./data/fruit_menu";
 import FruitCard from "./FruitCard";
 
 const Home = () => {

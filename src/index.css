@@ -149,3 +149,9 @@ button {
 .loginForm >button:hover {
   box-shadow: 5px 5px 5px #5b05ee;
 }
+
+.unity {
+  margin: auto;
+  width: 800px;
+  max-width: 80%;
+}

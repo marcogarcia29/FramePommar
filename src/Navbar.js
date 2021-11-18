@@ -5,7 +5,7 @@ const Navbar = () => {
     const [local, setLocal] = useState('');
     
     return (
-        <nav className='navbar  md:w-auto ...'>
+        <nav className='navbar w-screen ...'>
             <Link onClick={() => setLocal('http://localhost:3000/')} to='/'><h1 className="text-gray md:text-9x1 ...">Pomar Framework</h1></Link>
             {local === 'http://localhost:3000/login'
     

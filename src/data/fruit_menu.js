@@ -7,8 +7,8 @@ export default [
     },
     {
     id: 2,
-    name: 'Banana',
+    name: 'Maçã',
     unitPrice: 7.30,
-    pictureUrl:"https://d3ugyf2ht6aenh.cloudfront.net/stores/746/397/products/banana_caturra1-7e2b9a3f6b39b3309915220270001382-1024-1024.jpg"
+    pictureUrl:"https://img.elo7.com.br/product/zoom/27DBE8F/essencia-maca-vermelha-100-ml-essencia-saboaria.jpg"
     },
 ];

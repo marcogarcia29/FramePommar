@@ -23,7 +23,7 @@ code {
   align-items: center;
   background-color: #7531eb;
   padding: 0 5%;
-  width: 90%;
+  width: 100%;
   height: 60px;
   font-size: 20px;
   font-family: Helvetica;
@@ -151,7 +151,59 @@ button {
 }
 
 .unity {
-  margin: auto;
-  width: 800px;
-  max-width: 80%;
+  margin: 0 auto;
+  max-width: 70%;
+  margin-top: 40px;
+  flex: 1 1 200px;
+  flex-wrap: wrap;
+}
+
+.unitPrizes {
+  background-color: #dbcaf8;
+  min-width: 200px;
+  width: 50%;
+  padding-top: 100px;
+  border-radius: 5px;
+  justify-content:left;
+}
+
+.create {
+  height: 100%;
+}
+
+.create > img {
+  width: 100%;
+  display: block;
+}
+
+.unitPrizes > h1 {
+  font-weight: bold;
+  padding-bottom: 20px;
+  font-size: larger;
+}
+
+.unitPrizes >h1, p {
+  margin: 0 auto;
+  width: 70%;
+  text-align: left;
+}
+
+.unitPrizes > p {
+  font-size: larger;
+}
+
+.unitPrizes > button {
+  background-color: #5b05ee;
+  width: 70%;
+  min-height: 40px;
+  margin: 0 auto;
+  font-size: larger;
+  margin-top: 10px;
+  height: 50px;
+}
+
+button > img {
+  width: 30px;
+  display: inline;
+  border: 0;
 }

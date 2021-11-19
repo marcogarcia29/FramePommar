@@ -1,29 +1,42 @@
 import { Link } from "react-router-dom";
-import React, { useState} from "react";
+import React, { useState, useContext } from "react";
+import UserContext from "./UserContext";
+import { useLocation } from "react-router";
 
 const Navbar = () => {
-    const [local, setLocal] = useState('');
-    
+    const {carrinho, loggedUser} = useContext(UserContext);
+    const { pathname } = useLocation();
+
     return (
         <nav className='navbar w-screen ...'>
-            <Link onClick={() => setLocal('http://localhost:3000/')} to='/'><h1 className="text-gray md:text-9x1 ...">Pomar Framework</h1></Link>
-            {local === 'http://localhost:3000/login'
-    
-                ?  
-                null
-                : <div className='links items-center flex flex-row ...'>
+            <Link to='/'>
+                <h1 className="text-gray md:text-9x1 ...">Pomar Framework</h1>
+            </Link>
+            {pathname !== '/login' && (
+                <div className='links items-center flex flex-row ...'>
                     <form className="flex items-stretch mr-8 ...">
-                        <input className="text-sm ..." type="text" placeholder="Pesquise por frutas..." />
-                        <button type="submit"><i className="fa fa-search"></i> </button>
+                        <input
+                            className="text-sm ..."
+                            type="text"
+                            placeholder="Pesquise por frutas..."
+                        />
+                        <button type="submit">
+                            <i className="fa fa-search"></i>{" "}
+                        </button>
                     </form>
-                    <Link onClick={() => setLocal('http://localhost:3000/login')} to='/login'>Login</Link>
-
+                    {loggedUser.isLoggedIn ? (
+                        <>
+                        <span>Bem vindo(a), {loggedUser.userName}</span>
+                        <span>Carrinho: {carrinho.length}</span>
+                        </>
+                    ) : (
+                        <Link to='/login'>Login</Link>
+                    )}
                 </div>
-            }
-            
-
+            )}
+            {/*<span>Carrinho: {carrinho.length}</span>*/}
         </nav>
-    )
-}
+    );
+};
 
 export default Navbar;

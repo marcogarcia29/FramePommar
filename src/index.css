@@ -65,7 +65,8 @@ img {
 .itens > p {
   color: blue;
   text-align: left;
-  margin-left: auto
+  margin-left: auto;
+  margin: 0;
 }
 
 .navbar a{
@@ -163,6 +164,7 @@ button {
   min-width: 200px;
   width: 50%;
   padding-top: 100px;
+  max-width: 100%;
   border-radius: 5px;
   justify-content:left;
 }
@@ -200,6 +202,11 @@ button {
   font-size: larger;
   margin-top: 10px;
   height: 50px;
+}
+
+.unitPrizes > button:hover {
+  transition: 200ms;
+  box-shadow: 5px 5px 5px rgb(187, 170, 170);
 }
 
 button > img {

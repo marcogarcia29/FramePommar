@@ -6,6 +6,8 @@ import Login from './Login'
 import FruitDetails from './FruitDetails';
 import './App.css';
 import UserContext from './UserContext';
+import CartItems from './CartItems';
+import CartView from './CartView'
 
 function App() {
   const [carrinho, setCarrinho] = useState([]);
@@ -34,6 +36,9 @@ function App() {
                     </Route>
                     <Route path="/:fruitId"
                      element={<FruitDetails/>}>
+                    </Route>
+                    <Route path="/cartview"
+                     element={<CartView/>}>
                     </Route>
                   </Routes>
               </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useState, useContext } from "react";
+import React, {useContext } from "react";
 import UserContext from "./UserContext";
 import { useLocation } from "react-router";
 
@@ -26,15 +26,14 @@ const Navbar = () => {
                     </form>
                     {loggedUser.isLoggedIn ? (
                         <>
+                        {carrinho.length !== 0 && ( <Link to='/CartView'> <img  className="cartUser" src="https://img.icons8.com/external-icongeek26-flat-icongeek26/344/external-cart-essentials-icongeek26-flat-icongeek26.png"></img> </Link>)}
                         <span>Bem vindo(a), {loggedUser.userName}</span>
-                        <span>Carrinho: {carrinho.length}</span>
                         </>
                     ) : (
                         <Link to='/login'>Login</Link>
                     )}
                 </div>
             )}
-            {/*<span>Carrinho: {carrinho.length}</span>*/}
         </nav>
     );
 };

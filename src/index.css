@@ -214,3 +214,10 @@ button > img {
   display: inline;
   border: 0;
 }
+
+.cartUser {
+  display: inline;
+  width: 30px;
+  border-bottom: 0;
+  margin-right: 12px;
+}

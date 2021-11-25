@@ -14,20 +14,47 @@ function FruitDetails() {
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price)
+    }    
+
+    const handleAddFruitToCart = (fruit) => {
+        const getFruit = carrinho.find(prod => prod.name === fruit.name)
+        if (getFruit) {
+            fruit.amount += 1
+        }else{
+            fruit.amount += 1
+            setCarrinho((prev) => [...prev, currentFruit])
+        }
     }
+        /* const resultFruit = getFruit(currentFruit.name)
+        if (resultFruit) {
+            resultFruit.amount = resultFruit.amount + 1
+        }
+        setCarrinho((prev) => [...prev, resultFruit])
+        setCarrinho((prev) => [prev, resultFruit])
+    } */
+
+    // let fruitIndex = 2
+    //     const currentCart = [...carrinho];
+    //     currentCart[fruitIndex].amount += 1 
+    //     setCarrinho(prev => [...prev, ...currentCart])
+    // const cartItem = {
+    //     amount: 1,
+    //     product:fruit
+    // }
+
 
     return (
         <>
             {currentFruit ? (
                 <div className="unity flex ...">
                     <div className="create w-1/2">
-                        <img className="border-0" src={currentFruit.pictureUrl}></img>
+                        <img className="border-b-0 ..." src={currentFruit.pictureUrl}></img>
                     </div>
                     <div className="unitPrizes">
                         <h1>{currentFruit.name}</h1>
                         <p>{formatPrice(currentFruit.unitPrice)}</p>
                         <button
-                            onClick={() => setCarrinho((prev) => [...prev, currentFruit])}
+                            onClick={() => handleAddFruitToCart(currentFruit)}
                         >
                             Comprar
                             <img src="https://img.icons8.com/external-icongeek26-flat-icongeek26/344/external-cart-essentials-icongeek26-flat-icongeek26.png"></img>

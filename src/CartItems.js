@@ -5,9 +5,9 @@ const CartItems = (props) => {
 
 
     return (
-        <div>
-            <span>{props.name}</span>
-            <img src={props.pictureUrl}></img>
+        <div className="ControlCart">
+            <img className="border-0 ..." src={props.pictureUrl}></img>
+            <p>{props.name}</p>
             <p>{props.amount}</p>
         </div>
     )

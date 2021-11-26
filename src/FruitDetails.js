@@ -25,24 +25,7 @@ function FruitDetails() {
             setCarrinho((prev) => [...prev, currentFruit])
         }
     }
-        /* const resultFruit = getFruit(currentFruit.name)
-        if (resultFruit) {
-            resultFruit.amount = resultFruit.amount + 1
-        }
-        setCarrinho((prev) => [...prev, resultFruit])
-        setCarrinho((prev) => [prev, resultFruit])
-    } */
-
-    // let fruitIndex = 2
-    //     const currentCart = [...carrinho];
-    //     currentCart[fruitIndex].amount += 1 
-    //     setCarrinho(prev => [...prev, ...currentCart])
-    // const cartItem = {
-    //     amount: 1,
-    //     product:fruit
-    // }
-
-
+        
     return (
         <>
             {currentFruit ? (

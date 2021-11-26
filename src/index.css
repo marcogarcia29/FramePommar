@@ -249,3 +249,7 @@ button > img {
   transition: 200ms;
   box-shadow: 5px 5px 5px gray;
 }
+
+.ControlCart > button {
+  margin: 15px;
+}

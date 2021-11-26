@@ -8,12 +8,7 @@ const CartView = () => {
 
     return (
         <div>
-            {carrinho.map(fruit =>
-            (
-                <CartItems name={fruit.name} pictureUrl={fruit.pictureUrl} amount={fruit.amount}/>   
-            )
-            )}
-            {console.log(carrinho)}
+            <CartItems/>     
         </div>
     )
 }

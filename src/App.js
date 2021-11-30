@@ -15,6 +15,7 @@ function App() {
     userName: "",
     isLoggedIn: false,
   });
+  const [valor, setValor] = useState(0)
 
   useEffect(() => {
     document.title = "Pomar Framework"
@@ -22,7 +23,7 @@ function App() {
   return (
       <Router>
         <UserContext.Provider
-          value={{ carrinho, setCarrinho, loggedUser, setLoggedUser}}
+          value={{ carrinho, setCarrinho, loggedUser, setLoggedUser, valor, setValor}}
         >
         <div className="App">
           <Navbar />          

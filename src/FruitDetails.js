@@ -7,6 +7,7 @@ function FruitDetails() {
     const { fruitId } = useParams();
     const [currentFruit, setCurrentFruit] = useState();
     const {carrinho, setCarrinho} = useContext(UserContext);
+    const {valor, setValor} = useContext(UserContext);
 
     useEffect(() => {
         setCurrentFruit(() => fruit_menu.find(prod => prod.id === +fruitId))
@@ -20,8 +21,11 @@ function FruitDetails() {
         const getFruit = carrinho.find(prod => prod.name === fruit.name)
         if (getFruit) {
             fruit.amount += 1
+            setValor(fruit.unitPrice)
+            console.log(valor)
         }else{
             fruit.amount += 1
+            setValor(fruit.unitPrice)
             setCarrinho((prev) => [...prev, currentFruit])
         }
     }

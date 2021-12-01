@@ -7,6 +7,7 @@ const CartItems = () => {
     const {carrinho, setCarrinho} = useContext(UserContext);
     const carrinho2 = JSON.parse(JSON.stringify(carrinho))
     const {valor, setValor} = useContext(UserContext);
+    
 
     const removeItem = (fruit) => {
         fruit.amount -= 1

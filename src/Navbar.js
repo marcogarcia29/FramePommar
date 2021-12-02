@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom";
-import React, {useContext } from "react";
+import React, {useContext, useState } from "react";
 import UserContext from "./UserContext";
+import {useNavigate} from 'react-router-dom';
 import { useLocation } from "react-router";
 
 const Navbar = () => {
     const {carrinho, loggedUser} = useContext(UserContext);
     const { pathname } = useLocation();
+    const navigate = useNavigate();
+
+    const [search, setSearch] = useState('')
+
+    const handleSearch = (event) =>{
+        event.preventDefault()
+        if (!search) return
+        navigate(`/?search=${search}`,)
+    }
 
     return (
         <nav className='navbar w-screen ...'>
@@ -14,14 +24,15 @@ const Navbar = () => {
             </Link>
             {pathname !== '/login' && (
                 <div className='links items-center flex flex-row ...'>
-                    <form className="flex items-stretch mr-8 ...">
+                    <form onSubmit={handleSearch} className="flex items-stretch mr-8 ...">
                         <input
                             className="text-sm ..."
                             type="text"
                             placeholder="Pesquise por frutas..."
+                            onChange={(e)=>setSearch(e.target.value)}
                         />
                         <button type="submit">
-                            <i className="fa fa-search"></i>{" "}
+                            <i className="fa fa-search"></i>
                         </button>
                     </form>
                     {loggedUser.isLoggedIn ? (

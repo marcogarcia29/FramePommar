@@ -6,8 +6,14 @@ import { useLocation } from "react-router";
 
 const Navbar = () => {
     const {carrinho, loggedUser} = useContext(UserContext);
-    const { pathname } = useLocation();
+    const location = useLocation();
     const navigate = useNavigate();
+
+    const query = new URLSearchParams(location.search)
+
+    const searchString = query.get('search');
+
+    console.log(searchString);
 
     const [search, setSearch] = useState('')
 
@@ -22,7 +28,7 @@ const Navbar = () => {
             <Link to='/'>
                 <h1 className="text-gray md:text-9x1 ...">Pomar Framework</h1>
             </Link>
-            {pathname !== '/login' && (
+            {location.pathname !== '/login' && (
                 <div className='links items-center flex flex-row ...'>
                     <form onSubmit={handleSearch} className="flex items-stretch mr-8 ...">
                         <input
@@ -30,6 +36,7 @@ const Navbar = () => {
                             type="text"
                             placeholder="Pesquise por frutas..."
                             onChange={(e)=>setSearch(e.target.value)}
+                            value={search}
                         />
                         <button type="submit">
                             <i className="fa fa-search"></i>

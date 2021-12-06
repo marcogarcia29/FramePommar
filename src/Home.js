@@ -6,28 +6,38 @@ import { useLocation } from "react-router";
 
 const Home = () => {
     const location = useLocation();
-    const [filtro, setFiltro] = useState()
-    const query = new URLSearchParams(location.search)
-    const getFruits = () => new Promise((resolve, reject) => {
-        resolve(fruitMenu);
-    })
-    useEffect(() => {
-       getFruits().then(fruits => setFiltro(() =>{
-           return fruits.filter(fruit => fruit.name.includes(query))
-       }))
-    }, [query])
+    const { search } = window.location;
+    const query = new URLSearchParams(search).get('s');
+    const filterFruits = (fruitMenu, query) => {
+        if (!query) {
+            return fruitMenu;
+        }
+
+        return fruitMenu.filter((fruit) => {
+            const fruitName = fruit.name.toLowerCase();
+            return fruitName.includes(query);
+        });
+    };
+
+    const filteredFruits = filterFruits(fruitMenu, query);
+    
+    // const getFruits = () => new Promise((resolve, reject) => {
+    //     resolve(fruitMenu);
+    // })
+    // useEffect(() => {
+    //     getFruits().then(fruits => setFilter(() =>{
+    //        return fruits.filter(fruit => fruit.name.includes(query))
+    //    }))
+    // }, [])
     
     
     return (
         <div className='home'>
-            {fruitMenu.map(fruit =>
+            {filteredFruits.map(fruit =>
             (
                 <FruitCard name={fruit.name} id={fruit.id} unitPrice={fruit.unitPrice}
                     pictureUrl={fruit.pictureUrl}
                 />
-            )
-            )}{filtro?.map(fruit => (
-                <FruitCard name={fruit.name} pictureUrl={fruit.pictureUrl} key={fruit.id} />
             )
             )
             }

@@ -13,14 +13,12 @@ const Navbar = () => {
 
     const searchString = query.get('search');
 
-    console.log(searchString);
-
     const [search, setSearch] = useState('')
 
     const handleSearch = (event) =>{
         event.preventDefault()
         if (!search) return
-        navigate(`/?search=${search}`,)
+        navigate(`/?s=${search}`,)
     }
 
     return (
@@ -36,6 +34,7 @@ const Navbar = () => {
                             type="text"
                             placeholder="Pesquise por frutas..."
                             onChange={(e)=>setSearch(e.target.value)}
+                            name="s"
                             value={search}
                         />
                         <button type="submit">

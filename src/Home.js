@@ -6,8 +6,7 @@ import { useLocation } from "react-router";
 
 const Home = () => {
     const location = useLocation();
-    const { search } = window.location;
-    const query = new URLSearchParams(search).get('s');
+    const query = new URLSearchParams(location.search).get('s');
     const filterFruits = (fruitMenu, query) => {
         if (!query) {
             return fruitMenu;
@@ -20,16 +19,6 @@ const Home = () => {
     };
 
     const filteredFruits = filterFruits(fruitMenu, query);
-    
-    // const getFruits = () => new Promise((resolve, reject) => {
-    //     resolve(fruitMenu);
-    // })
-    // useEffect(() => {
-    //     getFruits().then(fruits => setFilter(() =>{
-    //        return fruits.filter(fruit => fruit.name.includes(query))
-    //    }))
-    // }, [])
-    
     
     return (
         <div className='home'>

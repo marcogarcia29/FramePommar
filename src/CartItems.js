@@ -8,10 +8,15 @@ const CartItems = () => {
     const carrinho2 = JSON.parse(JSON.stringify(carrinho))
     const {valor, setValor} = useContext(UserContext);
     
+    const formatPrice = (price) => {
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price)
+    }  
 
     const removeItem = (fruit) => {
         fruit.amount -= 1
         if (fruit.amount >= 1) {
+            setValor(valor - fruit.unitPrice)
+        }else {
             setValor(valor - fruit.unitPrice)
         }
         setCarrinho(carrinho2)
@@ -44,7 +49,7 @@ const CartItems = () => {
             )
             )}
             <div>
-                {valor}
+                {formatPrice(valor)}
             </div>
         </>
         

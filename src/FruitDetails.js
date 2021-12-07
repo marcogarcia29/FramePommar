@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import UserContext from "./UserContext";
 import fruit_menu from "./data/fruit_menu";
 
@@ -21,11 +21,11 @@ function FruitDetails() {
         const getFruit = carrinho.find(prod => prod.name === fruit.name)
         if (getFruit) {
             fruit.amount += 1
-            setValor(fruit.unitPrice)
+            setValor(fruit.unitPrice + valor)
             console.log(valor)
         }else{
             fruit.amount += 1
-            setValor(fruit.unitPrice)
+            setValor(fruit.unitPrice + valor)
             setCarrinho((prev) => [...prev, currentFruit])
         }
     }
@@ -40,7 +40,7 @@ function FruitDetails() {
                     <div className="unitPrizes">
                         <h1>{currentFruit.name}</h1>
                         <p>{formatPrice(currentFruit.unitPrice)}</p>
-                        <button
+                        <button 
                             onClick={() => handleAddFruitToCart(currentFruit)}
                         >
                             Comprar
